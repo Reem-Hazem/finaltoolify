@@ -1,0 +1,24 @@
+<div class="list-orders">
+    <div class="order-container">
+      <div class="header mb-3">
+        <div class="d-flex align-items-center gap-2 delivered-date">
+          <div class="d-flex align-items-center gap-2 tag"><div class="confirmed"><img src="../../../../../assets/icons/account/order/confirmed.svg" alt=""></div><span>Delivering</span></div>
+        </div>
+      </div>
+  
+      <div class="products-list">
+        <div *ngFor="let product of productsList" class="product">
+          <div class="product-info">
+            <div class="product-img"><img src="./assets/images/product.png" alt=""></div>
+            <p class="name">{{product?.name}}</p>
+          </div>
+          <button class="review primary-btn dark rate-btn" [routerLink]="'/account/product-rating/1'">Seller Info</button>
+          <button class="received primary-btn dark rate-btn" [routerLink]="'/account/product-rating/1'">Received</button>
+        </div>
+      </div>
+
+  
+    </div>
+
+</div>
+  

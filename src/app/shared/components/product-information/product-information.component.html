@@ -1,0 +1,77 @@
+<div class="product-info-container mb-5">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="gallery-container">
+          <div [ngClass]="{'product-gallery':true,'thumbnails-below':hasProductsGroupSegment}">
+            <div [ngClass]="{'product-gallery-thumbnails':true,'thumbnails-below':hasProductsGroupSegment}">
+              <owl-carousel-o
+                [options]="thumbnailCarouselOptions"
+                #thumbnailCarousel
+              >
+                <ng-container
+                  *ngFor="let image of productInfo?.productThumbnailsImages"
+                >
+                  <ng-template carouselSlide [id]="image['url']">
+                    <div
+                      class="thumbnail"
+                      (click)="featuredCarousel.to(image['url'])"
+                    >
+                      <img [src]="image['url']" />
+                    </div>
+                  </ng-template>
+                </ng-container>
+              </owl-carousel-o>
+            </div>
+            <div class="product-gallery-selected">
+              <owl-carousel-o [options]="owlCarouselOptions" #featuredCarousel>
+                <ng-container
+                  *ngFor="let image of productInfo?.productThumbnailsImages"
+                >
+                  <ng-template carouselSlide [id]="image['url']">
+                    <img [src]="image['url']" />
+                  </ng-template>
+                </ng-container>
+              </owl-carousel-o>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="product-info">
+          <div class="title">
+            <h2>{{ productInfo.title }}</h2>
+          </div>
+          <div class="price-container">
+            <span class="original-price"
+              >{{
+                productInfo.productPriceAfterDiscount.toString().split(".")[0]
+              }}.<span>{{
+                productInfo.productPriceAfterDiscount.toString().split(".")[1]
+              }}</span>
+            </span>&nbsp;
+            <span class="currency original-price" >EGP</span>&nbsp;
+          </div>
+          <div class="description-container">
+            <p class="description">
+              {{ productInfo.productDes }}
+            </p>
+          </div>
+          <div class="product-quantity-container">
+            <div class="quantity-cart-container">
+              <div class="add-to-cart">
+                <button (click)="openAddToCartPopup()" class="primary-btn lg-btn" >
+                  <img
+                    src="./assets/images/white-cart-icon.svg"
+                    alt="white-cart-icon"
+                  />
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
+  

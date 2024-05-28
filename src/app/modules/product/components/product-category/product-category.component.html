@@ -1,0 +1,16 @@
+<div class="product-cate">
+    <div class="panner px-0">
+        <div class="over-layer" >
+            <h3>Main category</h3>
+          </div>
+        <img src="../../../../../assets/images/art.jpg" height="300px" width="100%" alt="">
+    </div>
+    <div *ngFor="let subCate of subCates" class="categories container pb-5">
+        <div class="mb-4 d-flex justify-content-between">
+            <h3 class="head-categories">{{subCate}}</h3>
+            <a [routerLink]="['/product/list/12']" class="link">View more</a>
+        </div>
+        <app-product-slider [productsList]="products"></app-product-slider>
+    </div>
+    
+</div>

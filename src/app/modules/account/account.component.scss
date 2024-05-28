@@ -1,0 +1,54 @@
+
+.margin-account{
+    margin-block-end: 197px;
+}
+.account-title{
+    border-radius: 36.5px;
+    background: #F9F9F9;
+    color: #404042;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: normal;
+    width: 40%;
+    margin-inline: auto;
+    margin-block-end:38.5px ;
+    padding-block:15px;
+    padding-inline: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.tabs {
+    margin-block-end: 15px;
+    gap:10px;
+& > div{
+    border-radius: 21px;
+    background: #838384;
+    color: #FDFDFD;
+    font-size: 14px;
+    padding-block: 9px;
+    padding-inline: 20px;
+    cursor: pointer;
+    max-width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 42px;
+    }
+& > div:hover{
+        background: #404042;
+    } 
+}
+
+.active-tap{
+    background: #404042 !important;
+}
+
+@media screen and ( max-width:400px){
+    .account-title{
+        padding-inline: 90px;
+    }
+}

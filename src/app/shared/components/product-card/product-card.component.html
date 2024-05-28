@@ -1,0 +1,19 @@
+<div class="product-card">
+    <a [routerLink]="'/product/'+product.id">
+        <div class="img-section">
+            <img src="../../../../assets/images/product.png" alt="">
+        </div>
+    </a>
+    <div class="information">
+        <p class="name">
+            {{product.name}}
+        </p>
+        <p class="time">
+            {{product.used_time}}
+        </p>
+        <div class="d-flex justify-content-between">
+            <p class="price">{{product.price}} EGP</p>
+            <img src="../../../../assets/icons/fill-heart.svg" width="20px" alt="fill-heart" class="fav">
+        </div>
+    </div>
+</div>

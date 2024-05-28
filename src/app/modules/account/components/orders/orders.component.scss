@@ -1,0 +1,118 @@
+@import "../../../../../assets/styles/buttons.scss";
+.list-orders{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  gap: 15px;
+  margin-bottom: 150px;
+  .order-container{
+    border-radius: 8px;
+    background: #F9F9F9;
+    max-width: 660px;
+    width: 95%;
+    padding: 19px 22px 30px 22px;
+    .header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      .confirmed{
+        width: 24px;
+        height: 24px;
+        background: #01D53C;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+          width: 14px;
+        }
+      }
+      .tag span{
+        color: #404042;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .date{
+        color: #404042;
+        font-size: 16px;
+        .arrived{
+          color: #5AE47F;
+        }
+      }
+    }
+
+    .products-list{
+      min-height: 120px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #FDFDFD;
+      border: 0.5px solid #F2F2F2;
+      .product{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 7px;
+        @media screen and (max-width:550px) {
+          flex-direction: column;
+          margin-bottom: 20px;
+        }
+      }
+      .product-info{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        @media screen and (max-width:550px) {
+          flex-direction: column;
+        }
+        .product-img img{
+          width: 90px;
+          height: 85px;
+        }
+        .name{
+          margin: 0;
+          color: #404042;
+          font-size: 16px;
+          font-weight: 600;
+          text-align: start;
+          max-width: 180px;
+          @media screen and (max-width:550px) {
+            max-width: unset;
+          }
+        }
+      }
+
+      .primary-btn{
+        border-radius: 20px;
+        min-width: 120px;
+      }
+
+    }
+
+    .footer-order{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+      margin-top: 15px;
+      .invoice{
+        text-align: start;
+        margin-top: 10px;
+        color: #838384;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .request-discard{
+        font-size: 16px;
+        color: #FFA533;
+        font-weight: 400;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+}

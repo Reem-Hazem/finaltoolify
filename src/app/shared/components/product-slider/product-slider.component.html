@@ -1,0 +1,12 @@
+<div class="slider-container">
+
+  <div class="carouser-content">
+      <owl-carousel-o [options]="customOptions">
+         <ng-template *ngFor="let product of productsList;let i=index" carouselSlide>
+          <div class="py-1">
+            <app-product-card [product] = "product"></app-product-card>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="product-details-container">
+    <div class="product-info-container mt-3">
+        <app-product-information
+          [productInfo]="productInfoData"
+        ></app-product-information>
+    </div>
+    <div class="related-products-container">
+        <h3>Related Products</h3>
+        <div class="related-products">
+          <app-product-slider [productsList]="products"></app-product-slider>
+        </div>
+      </div>
+  </div>
+  

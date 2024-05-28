@@ -1,0 +1,321 @@
+<div class="rana">
+  <div class="container-navbar" [ngStyle]="navbarBg">
+    <div class="top-nav ">
+      <!-- first section -->
+      <div class="d-flex f-section">
+        <a class="logo-site" routerLink="/">
+          <img src=".\assets\images\logo.jpg" alt="logo" class="logo" />
+        </a>
+      </div>
+      <!-- second section -->
+      <div [ngClass]="{'w-100': !showSearch}" class="d-flex align-items-center gap-3 justify-content-center flex-wrap">
+        <div (click)="showProfileMenu()" class="toggle-bar">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div *ngIf="!showSearch" class="sec-top-nav" [hidden]="short">
+          <div class="list-main-categories">
+            <ng-container *ngFor="let Cate of mainCate">
+              <span class="main-cate">
+                <span class="Cate-name" [routerLink]="['/product/category/12']">
+                  {{Cate.name}}
+                  <div class="underline"></div>
+                </span>
+                <div class="list-sub-cate">
+                  <span class="sub-cate" *ngFor="let subCate of Cate.subCate">
+                    {{subCate}}
+                  </span>
+                </div>
+              </span>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <!-- third section -->
+      <div class="d-flex l-section justify-content-end" [ngClass]="{'flex-grow-1': showSearch}">
+        <i *ngIf="!showSearch" class="fa fa-search " (click)="toggleSearch()"></i>
+        <input class="form-control magnyify" *ngIf="showSearch" type="text" placeholder="Search"
+          [(ngModel)]="searchQuery" (keyup.enter)="search()" />
+        <a class="carts" routerLink="/cart">
+          <img src="./assets/icons/navbar-cart-icon.svg" alt="cart2" />
+          <!-- <span>Cart</span> -->
+        </a>
+        <div *ngIf="!isAuth" (click)="login_flag=true" class="login-widget">
+          <img src="./assets/images/login-icon.svg" alt="" />
+          <span>Login</span>
+        </div>
+        <div *ngIf="isAuth" class="login-widget">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <!-- <span></span> -->
+            <img class="img-profile" src="./assets/icons/profile-icon.svg" />
+            {{ userName }}
+            <img class="img-arrow" src="./assets/icons/account-arrow.svg" />
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/account/orders" routerLinkActive="active">
+                <img src="./assets/images/orders.svg" alt="" />
+                <span>Orders</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/account/my-product" routerLinkActive="active">
+                <img src="./assets/icons/upload.svg" alt="" />
+                <span>My Product</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/account/my-product/sell" routerLinkActive="active">
+                <img src="./assets/icons/upload.svg" alt="" />
+                <span>Sell</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/account/favorites" routerLinkActive="active">
+                <img src="./assets/images/fav.svg" alt="" />
+                <span>Favorites</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/account/profile" routerLinkActive="active">
+                <img src="./assets/images/user.svg" alt="" />
+                <span>Personal Profile</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item last-item">
+                <div class="d-flex align-items-center justify-content-between gap-3 w-100">
+                  <div class="d-flex gap-2 help" routerLink="/help-and-support" routerLinkActive="active">
+                    <img src="./assets/images/helpers.svg" alt="" />
+                    <span>Help</span>
+                  </div>
+                  <div (click)="logout()" class="d-flex gap-2">
+                    <img src="./assets/images/logout.svg" alt="" />
+                    <span>Logout</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="profile-popup">
+    <div class="header">
+      <div (click)="closeProfileMenu()" class="close-icon">
+        <i class="fa-regular fa-rectangle-xmark"></i>
+      </div>
+    </div>
+    <div class="content-menu-list">
+      <img src="./assets/images/logo.jpg" alt="logo" class="logo" />
+      <ul class="list-items">
+        <li *ngIf="!isAuth" class="item" (click)="login_flag=true">
+          <span>Login</span>
+        </li>
+        <li *ngIf="isAuth" class="item mt-2 d-block">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span></span>{{ userName }}
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a (click)="closeProfileMenu()" class="dropdown-item" routerLink="/account/orders"
+                routerLinkActive="active">
+                <img src="./assets/images/orders.svg" alt="" />
+                <span>Orders</span>
+              </a>
+            </li>
+            <li>
+              <a (click)="closeProfileMenu()" class="dropdown-item" routerLink="/account/my-product"
+                routerLinkActive="active">
+                <img src="./assets/icons/upload.svg" alt="" />
+                <span>My product</span>
+              </a>
+            </li>
+            <li>
+              <a (click)="closeProfileMenu()" class="dropdown-item" routerLink="/account/my-product/sell"
+                routerLinkActive="active">
+                <img src="./assets/icons/upload.svg" alt="" />
+                <span>Sell</span>
+              </a>
+            </li>
+            <li>
+              <a (click)="closeProfileMenu()" class="dropdown-item" routerLink="/account/favorites"
+                routerLinkActive="active">
+                <img src="./assets/images/fav.svg" alt="" />
+                <span>Favorites</span>
+              </a>
+            </li>
+            <li>
+              <a (click)="closeProfileMenu()" class="dropdown-item" routerLink="/account/my-account"
+                routerLinkActive="active">
+                <img src="./assets/images/user.svg" alt="" />
+                <span>Personal Profile</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item last-item">
+                <div class="d-flex align-items-center justify-content-between gap-3 w-100">
+                  <div (click)="closeProfileMenu()" class="d-flex gap-2" routerLink="/help-and-support"
+                    routerLinkActive="active">
+                    <img src="./assets/images/helpers.svg" alt="" />
+                    <span>Help</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <img src="./assets/images/logout.svg" alt="" />
+                    <span (click)="logout();closeProfileMenu()">Logout</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="item">
+          <a class="carts" routerLink="/cart" (click)="closeProfileMenu()">
+            <img src="./assets/icons/navbar-cart-icon.svg" alt="cart2" />
+            <!-- <span>Cart</span> -->
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <div class="blur" [hidden]="!signUp && !login_flag" (click)="signUp = false;login_flag = false"></div>
+  <p-dialog [dismissableMask]="true" [(visible)]="signUp">
+    <img src="./assets/images/logo.jpg" alt="logo" class="logo" />
+    <h3 class="head">Toolify</h3>
+    <h5 class="sup-head mb-4">Sign Up</h5>
+    <form action="" [formGroup]="loginForm" #form="ngForm" (ngSubmit)="true">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="text" class="form-control" formControlName="fname" placeholder="First Name">
+          <app-form-errors
+              [color]="'danger'"
+              [form]="form"
+              [control]="registerForm.controls['fname']"
+              >
+          </app-form-errors>
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" formControlName="lname" placeholder="Last Name">
+          <app-form-errors
+              [color]="'danger'"
+              [form]="form"
+              [control]="registerForm.controls['lname']"
+              >
+          </app-form-errors>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12">
+          <input type="text" class="form-control" formControlName="email"  placeholder="Email">
+          <app-form-errors
+              [color]="'danger'"
+              [form]="form"
+              [control]="registerForm.controls['email']"
+              >
+          </app-form-errors>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12">
+          <input type="text" class="form-control" formControlName="password" placeholder="Password">
+          <app-form-errors
+              [color]="'danger'"
+              [form]="form"
+              [control]="registerForm.controls['password']"
+              >
+          </app-form-errors>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12">
+          <input type="text" class="form-control" formControlName="phone" placeholder="Phone">
+          <app-form-errors
+              [color]="'danger'"
+              [form]="form"
+              [control]="registerForm.controls['phone']"
+              >
+          </app-form-errors>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12">
+          <input type="text" formControlName="nationalId" class="form-control" placeholder="National Id">
+          <app-form-errors
+              [color]="'danger'"
+              [form]="form"
+              [control]="registerForm.controls['nationalId']"
+              >
+          </app-form-errors>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-12">
+          <p-dropdown [options]="locations" formControlName="location" [showClear]="false" optionLabel="name"
+            placeholder="Select a location"></p-dropdown>
+            <app-form-errors
+              [color]="'danger'"
+              [form]="form"
+              [control]="registerForm.controls['location']"
+              >
+          </app-form-errors>
+        </div>
+      </div>
+      <div class="footer row">
+        <div class="col-md-12">
+          <button type="submit" class="custom-btn">
+            Submit
+            <i *ngIf="loadingSubmit" class="fa-spin fas fa-spinner"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </p-dialog>
+
+
+  <p-dialog [dismissableMask]="true" [(visible)]="login_flag">
+    <img src="./assets/images/logo.jpg" alt="logo" class="logo" />
+    <h3 class="head">Toolify</h3>
+    <h5 class="sup-head mb-4">Log in</h5>
+    <!-- ngSubmit = submit function -->
+    <form action="" [formGroup]="loginForm" #form="ngForm" (ngSubmit)="true">
+      <div class="row mb-3">
+        <div class="col-12">
+          <input type="text" class="form-control" formControlName="email" placeholder="Email">
+          <app-form-errors
+              [color]="'danger'"
+              [form]="form"
+              [control]="loginForm.controls['email']"
+              >
+          </app-form-errors>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-12">
+          <input type="text" class="form-control" formControlName="password" placeholder="Password">
+          <app-form-errors
+          [color]="'danger'"
+          [form]="form"
+          [control]="loginForm.controls['password']"
+          >
+          </app-form-errors>
+        </div>
+      </div>
+      <div class="footer row mb-3">
+        <div class="col-md-12">
+          <button type="submit" class="custom-btn" (click)="isAuth = true;login_flag=false">
+            Submit
+            <i *ngIf="loadingSubmit" class="fa-spin fas fa-spinner"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row text-center">
+        <a (click)="login_flag=false;signUp=true" class="link">Create new account</a>
+      </div>
+    </form>
+  </p-dialog>
+
+</div>

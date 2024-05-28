@@ -1,0 +1,55 @@
+.custom-btn {
+    width: 100%;
+    background: #4CAF4F;
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 15px;
+    gap: 20px;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-weight: 600;
+    border: none;
+}
+.cancel-btn{
+    border: 1px solid #C1C7D0;
+    border-radius: 15px;
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--paragraph-sm-size);
+    font-weight: 600;
+    font-family: 'Inter';
+    background: none;
+    color: #979797;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.review, .received{
+    font-weight: 400;
+    font-size: 14px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+  
+    &.primary-btn{
+      background-color: #4CAF4F;
+      color: #F9F9F9;
+    }
+}
+.received{
+    &.primary-btn{
+        background-color: #388E3B;
+        color: #F9F9F9;
+    }
+}

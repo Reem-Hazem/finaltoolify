@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Dr+Sugiyama&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Dr+Sugiyama&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap');
+  .main{
+    font-family: "Satisfy", cursive !important;
+    font-weight: bold;
+    color: #4CAF4F;
+
+  }
+  
+.Intro{
+    background-color: #f8f9fa !important;
+}
+.mainSec{
+    padding-top: 70px;
+}
+.secParag{
+    color: black;
+    font-size: 17px;
+    font-family: "Dancing Script", cursive !important ;
+}
+.home{
+    background-color: #F9F9F9;
+
+    .categories{
+        padding-top: 20px;
+        .sub-categories{
+            background: linear-gradient(0deg, #4CAF4F 0%, rgba(64, 64, 66, 0) 100%);
+            width: 130px;
+            height: 55px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 0px;
+            color: #fff;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .head-categories{
+            font-weight: 700;
+            font-size: 36px;
+        }
+        .link{
+            color: #4CAF4F;
+        }
+    }
+   
+}

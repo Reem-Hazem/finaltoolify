@@ -1,0 +1,34 @@
+<section class="container margin-account">
+    <section class="row">
+        <section class="col">
+            <article class="account-title text-center">
+                <img src="./assets/icons/account/orders-title.svg" [hidden]="!orderTab.isActive" alt="orders-menu"/>
+                <img src="./assets/icons/account/wishlist-title.svg" [hidden]="!favTab.isActive" alt="wishlist-menu"/>
+                <img src="./assets/icons/account/account-title.svg" [hidden]="!accTab.isActive" alt="account-menu"/>
+                <img src="./assets/icons/account/upload-title.svg" [hidden]="!myProdTab.isActive" alt="myProduct-menu"/>
+                <span>{{currentTab}}</span>
+            </article>
+
+            <article class="d-flex justify-content-center flex-wrap tabs text-center">
+                <div routerLink="profile" routerLinkActive="active-tap" #accTab="routerLinkActive">
+                    <img src="./assets/icons/account/account.svg" alt="account-menu"/>
+                    <span>Profile</span>
+                </div>
+                <div routerLink="favorites" routerLinkActive="active-tap" #favTab="routerLinkActive">
+                    <img src="./assets/icons/account/wishlist.svg" alt="wishlist-menu"/>
+                    <span>Favorites</span>
+                </div>
+                <div routerLink="my-product" routerLinkActive="active-tap" #myProdTab="routerLinkActive">
+                    <img src="./assets/icons/account/upload.svg" alt="product-menu"/>
+                    <span>My Product</span>
+                </div>
+                <div routerLink="orders"  routerLinkActive="active-tap" #orderTab="routerLinkActive">
+                    <img src="./assets/icons/account/orders.svg" alt="orders-menu"/>
+                    <span>Orders</span>
+                </div>
+
+            </article>
+            <router-outlet></router-outlet>
+        </section>
+    </section>
+</section>

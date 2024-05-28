@@ -1,0 +1,292 @@
+@import "../../../styles.scss" ;
+
+.container{
+    .row{
+        .head-line{
+            h5{
+                width: 25%;
+                border-radius: 1.71875rem;
+                background: white;
+                padding-block: 0.6rem;
+                padding-inline-start: 1.56rem;
+                // padding-inline-end: 3.4rem;
+                color: black;
+                font-size: 1.125rem;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                min-width: 142px;
+            }
+        }
+        .left-side{
+            .free-deliver-part{
+                border-radius: 1.71875rem;
+                background: #E4C0D4;
+                color: #373737;
+                line-height: normal;
+                padding-block: 1rem;
+                padding-inline-start: 2.38rem;
+            }
+            .product{
+                border-radius: 0.5rem;
+                background: white;
+                padding-block: 22px;
+                padding-inline-start: 1.5rem;
+                position: relative;
+                display:flex ;
+                margin-block: 0.8rem;
+                .prod-img{
+                    width:31%;
+                    min-width: 220px;
+                    margin-block: auto;
+                    .product-img{
+                        border-radius: 0.3125rem;
+                        width: 100%;
+                        padding: 0.4rem;
+                        border: 0.5px solid #d5d3d3;
+                    }
+                }
+                .product-data{
+                    margin-inline-start: 2rem;
+                    margin-block-start: 0.55rem;
+                    .product-name{
+                        font-weight:600 ;
+                        color: #373737;
+                        overflow:hidden ;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        max-width: 55%;
+                    }
+                    .font-category-arrive{
+                        font-size: 0.875rem;
+                        font-weight: 400;
+                    }
+                    .product-category{
+                        color: #B9BBBD;
+                    }
+                    .arrival-time{
+                        color: #373737;
+                    }
+                    .product-price{
+                        color: #666668;
+                        font-size: 2.25rem;
+                        font-weight: 700;
+                        line-height: 1.5rem;
+                        span{
+                            font-size: 1.3125rem;
+                        }
+                    }
+                }
+                .product-actions{
+                    position: absolute;
+                    inset-block-start: 27px;
+                    inset-inline-end:1rem ;
+                    img{
+                        cursor: pointer;
+                        margin-block-start: -1px;
+                    }
+                    span{
+                        cursor: pointer;
+                        color: #373737;
+                        font-size: 0.875rem;
+                        margin-inline-start: 0.62rem;
+                        margin-inline-end: 0.7rem;
+                    }
+                }
+            }
+        }
+        .cart-summary{
+            border-radius: 0.5rem;
+            border: 0.5px solid #f1ecec;
+            background: white;
+            // margin-inline-start: 9px;
+            height:fit-content;
+            .total-title{
+                margin-bottom: 0;
+                margin-block: 1rem;
+                text-align: center;
+                color: #373737;
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: normal;
+            }
+            hr{
+                width:90% ;
+                color:#ABBED1 ;
+                // margin: 1rem auto ;
+                margin-inline: auto;
+            }
+            .total-fee{
+                padding-inline: 1.8rem;
+                p{
+                    color: #373737;
+                    font-size: 1.125rem;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+            input{
+                border-radius: 1.3125rem;
+                border: 0.5px solid #DEDEDE;
+                background: white;
+                padding-block: 0.56rem;
+                padding-inline: 1.1rem;
+                color: #373737;
+                font-size: 0.875rem;
+            }
+            input:focus{
+                outline:none;
+            }
+            .total-last, .add-card{
+                margin-inline: 1.5rem;
+            }
+            .pay-btn{
+                border-radius: 1.5625rem;
+                border: 0.5px solid #DEDEDE;
+                background: #4CAF4F;
+                display: block;
+                color: white;
+                width: 86%;
+                font-size: 20px;
+                margin-inline: auto;
+                margin-block-end: 1.6rem;
+                font-weight: 800;
+            }
+            .add-card{
+                label{
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    .related{
+        // margin-block-start: 55px;
+        margin-inline-start: 9px;
+        color: black;
+        font-size: 18px;
+        margin-block-start: 40px;
+    }
+}
+.list-products-carousel{
+    // margin-block-start: 21px ;
+    margin-block-end: 50px ;
+}
+
+@media screen and ( min-width: 1200px){
+    .head-line{
+        h5{
+            width: 17% !important;
+        }
+    }
+}
+@media screen and ( max-width: 1200px){
+    .left-side , .cart-summary{
+        margin-inline: auto;
+    }
+}
+@media screen and (min-width:1024px) and ( max-width: 1200px){
+    .total-fee{
+        width: 96%;
+    }
+    .total-last {
+        width: 89%;
+    }
+    .total-fee , .total-last{
+        margin: auto;
+    }
+}
+@media screen and (min-width:767px) and ( max-width: 1024px){
+    .total-last {
+        margin-inline: 3.5rem !important;
+    }
+    .total-fee {
+        padding-inline: 3.5rem !important;
+    }
+}
+@media screen and (min-width:767px) and ( max-width: 992px){
+    .product{
+        padding-block-start: 20px !important;
+        padding-block-end: 70px !important;
+        .product-actions{
+            inset-block-start: unset !important;
+            inset-block-end: 21px !important;
+        }
+    }
+}
+@media screen and ( max-width: 767px){
+    .product{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        padding-inline-start: 0 !important;
+        .prod-img{
+            margin-inline: auto;
+        }
+        .product-data{
+            margin-block-end: 2rem;
+        }
+        .product-actions{
+            inset-block-end: 16px ;
+            inset-block-start: unset !important;
+        }
+    }
+}
+@media screen and (max-width:500px){
+    .gift{
+        .product-data{
+            .gift-action{
+                .product-name{
+                    margin-block-start: 0 !important;
+                }
+            }
+            .gift-edit{
+                flex-direction: column;
+                align-items: center !important;
+                gap: 10px !important;
+                .gift-input{
+                    width:100% !important;
+                    .input-container{
+                        input{
+                            width:100% !important;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:300px) and ( max-width: 414px){
+    .head-line{
+        h5{
+            margin-inline: auto;
+            width: 44% !important;
+        }
+    }
+    .product{
+        .prod-img{
+            width: 45% !important;
+            min-width: 8rem !important;
+        }
+        .product-data{
+            margin-block-end: 2rem;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+  ul {
+    list-style: none;
+  }

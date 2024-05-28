@@ -1,0 +1,112 @@
+<app-nav-bar class="mb-3" [short]="true"></app-nav-bar>
+<div class="container-background">
+  <div class="checkout-container">
+    <!-- addresses section -->
+    <div class="addresses-container">
+      <div class="header">
+        <h3 class="title">Shipping address</h3>
+        <button class="add-address primary-btn" routerLink="/account/addresses"><i class="fa-solid fa-plus"></i> <span>Add New Address</span></button>
+      </div>
+      <!-- list all address -->
+      <div class="addresses-list">
+        <div *ngFor="let schema of schemaLoading;let i = index" class="address" [class.active]="activeAddressId == i" (click)="onChangeAddress(i)">
+          <h4 class="name">Omar Elzneny</h4>
+          <p>Fairouz Al Abd Al Aziz - King Faisal Dt. - Riyadh Principality - Riyadh Province - 13215</p>
+          <span class="phone">+966-58-3739512</span>
+          <div *ngIf="i==0" class="main-address">Main address</div>
+        </div>
+      </div>
+
+    </div>
+    <!-- order section  -->
+    <div class="order-container">
+      <div class="header">
+        <h3 class="title">Order</h3>
+      </div>
+
+      <!-- order products section -->
+      <div class="order-products">
+        <h4 class="subtitle">
+          (2 <span>Products</span>)
+        </h4>
+        <div class="products-list">
+          <!-- <app-small-product-card *ngFor="let schema of schemaLoading;let i = index" [product]="{imageUrl:'./assets/images/Bitmap.png',description:smallProductDescriptionTran,cardBackground:'transparent'}"></app-small-product-card> -->
+        </div>
+      </div><!-- end order products section -->
+
+      <!-- payment section -->
+      <div class="payment-content">
+        <div class="header">
+          <h4 class="title">Payment</h4>
+          <span class="subtitle">Choose a payment method</span>
+        </div>
+        <div class="payment-methods">
+          <div class="pay-method" [class.active]="activePaymentMethodId == 'mada'" (click)="onChangePayMethod('mada')"><img class="bank-logo" src="./assets/images/white-mada.png" alt="bank-logo"></div>
+          <div class="pay-method" [class.active]="activePaymentMethodId == 'applepay'" (click)="onChangePayMethod('applepay')"><img class="bank-logo" src="./assets/images/white-applepay.png" alt="bank-logo"></div>
+          <div class="pay-method" [class.active]="activePaymentMethodId == 'tabby'" (click)="onChangePayMethod('tabby')"><img class="bank-logo" src="./assets/images/tabby.png" alt="bank-logo"></div>
+          <div class="pay-method" [class.active]="activePaymentMethodId == 'cash'" (click)="onChangePayMethod('cash')"><img class="bank-logo" src="./assets/images/cash.png" alt="bank-logo"></div>
+        </div>
+
+        <!-- in case user choose cash hide payment section -->
+
+        <ng-container *ngIf="activePaymentMethodId != 'cash'">
+          <div class="saved-cards-title">Saved Cards</div>
+          <div *ngIf="!isAddNewPaymentMethod" class="saved-cards-list">
+            <!-- card details -->
+            <div *ngFor="let schema of schemaLoading;let i = index" class="card-content" (click)="cardLabel.click()">
+              <div class="card-num">
+                <input id="card-{{i}}" class="form-check-input" name="card-item" type="radio"/>
+                <label for="card-{{i}}" #cardLabel> <span>End</span> 787</label>
+              </div>
+
+              <div class="secret-num">
+                <label for="">CVV</label>
+                <input type="text" class="form-control" maxlength="3" (click)="$event.stopPropagation()">
+              </div>
+
+              <div class="logo-card"><img src="./assets/images/white-visa.png" alt="logo-card"></div>
+            </div>
+          </div>
+
+          <div *ngIf="!isAddNewPaymentMethod" (click)="isAddNewPaymentMethod = true" class="add-new-payment">
+            <img src="./assets/images/card-payment.svg" alt="card-payment">
+            <span>Add New Payment</span>
+          </div>
+        </ng-container>
+
+      </div> <!-- end payment section -->
+
+      <!-- total order -->
+      <div class="total-order-container">
+        <h3 class="title">Total Order</h3>
+        <div class="content">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span>Total products</span>
+            <!-- <span class="fw-600">{{71.37 | currency:'SAR'}}</span> -->
+            <span class="fw-600">51.37 SAR</span>
+
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span>Shipping Fees</span>
+            <span class="fw-600 green-color">Free</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span >Discount rate</span>
+            <!-- <span class="fw-600 green-color">{{20 | currency:'SAR'}}</span> -->
+            <span class="fw-600 green-color">20 SAR</span>
+          </div>
+          <div class="horizontal-line"></div>
+          <div class="d-flex justify-content-between align-items-center f-bold">
+            <span>Total</span>
+            <!-- <span>{{51.37 | currency:'SAR'}}</span> -->
+            <span>51.37 SAR</span>
+          </div>
+        </div>
+      </div><!-- end total order -->
+
+      <button class="primary-btn dark confirm" routerLink="/checkout/confirmation">Payment confirmation</button>
+
+    </div><!-- end order section  -->
+
+  </div>
+</div>

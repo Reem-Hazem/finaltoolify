@@ -1,0 +1,30 @@
+<section class="Intro" >
+    <div class="container-lg about-cont ">
+        <div class="row gx-2"> 
+
+<div class="col-lg-7 pt-5 ps-2 my-5 my-lg-0 max-width">
+
+<div class="light mainSec ">
+    <h1 class=" mb-1 main">  Welcome to Toolify</h1>
+    <p class="mt-4 secParag"> where your tools earn you money. Say goodbye to unused tools gathering dust in your garage and hello to a new way of tool ownership. With Toolify, you can easily sell your unused tools and make money, while also finding great deals on quality equipment for your next project. </p>
+ <p class="secParag">Join our growing community of tool enthusiasts and start earning money from your unused tools today. Toolify: Where every tool has value, and every exchange is a step towards a more efficient and profitable workshop</p>
+</div>
+</div>
+
+<div class="col-lg-5 pt-4">
+    <img src=".\assets\images\Toolify website logo green and black color medicine tools (2).png" class="w-100" alt="hero image">
+</div>
+        </div>
+    </div>
+</section>
+
+
+<div class="home">
+    <div *ngFor="let mainCate of mainCates" class="categories container pb-5">
+        <div class="mb-4 d-flex justify-content-between">
+            <h3 class="head-categories"> {{mainCate}}</h3>
+            <a [routerLink]="['/product/category/12']" class="link">View more</a>
+        </div>
+        <app-product-slider [productsList]="products"></app-product-slider>
+    </div>
+</div>

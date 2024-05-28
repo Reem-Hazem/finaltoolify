@@ -1,0 +1,84 @@
+<div class="err" *ngIf=" control && control.touched && control.errors">
+    <!-- <div *ngIf="control.hasError('notMatch')">Password and Confirm Password must be match</div> -->
+    <div *ngIf="control.errors.required || control.errors.whitespace" class="text-start">*Required</div>
+    <div *ngIf="control.errors.minlength">*<span>Minimum length</span> {{control.errors.minlength.requiredLength}} <span>characters</span>
+    </div>
+    <div *ngIf="control.errors.maxlength">*<span>Maximum length</span> {{control.errors.maxlength.requiredLength}} <span>characters</span>
+    </div>
+    <div *ngIf="control.errors.min">*<span>Min</span> {{control.errors.min.min}}
+    </div>
+    <div *ngIf="control.errors.max">*<span>Max</span> {{control.errors.max.max}}
+    </div>
+    <div *ngIf="control.errors.email || control.errors.pattern?.requiredPattern == emailRegex">
+        *Invalid email format
+    </div>
+    <div *ngIf="control.errors.fileSize">
+        *<span>Max file size is</span> {{control.errors?.fileSize?.maxSize}}
+    </div>
+    <!-- <div *ngIf="control.errors.fileExt">
+        *File Only (JPG , PNG)
+    </div> -->
+    <!-- ***** end image validation -->
+    <div *ngIf=" control.errors.pattern?.requiredPattern == webSiteRegex">
+        *Invalid website url
+    </div>
+
+    <!-- ************** start password patterns  -->
+    <div
+        *ngIf="(getControlName(control) == 'password' || getControlName(control) == 'password_confirmation' )  && control.hasError('notHasCapitalCase')">
+        *Password Should contain capital letters
+    </div>
+    <div
+        *ngIf="(getControlName(control) == 'password' || getControlName(control) == 'password_confirmation' ) && control.hasError('notHasSmallCase')">
+        *Password Should contain small letters
+    </div>
+    <div
+        *ngIf="(getControlName(control) == 'password' || getControlName(control) == 'password_confirmation' ) && control.hasError('notHasNumber')">
+        *Password Should contain numbers
+    </div>
+    <div
+        *ngIf="(getControlName(control) == 'password' || getControlName(control) == 'password_confirmation' ) && control.hasError('notHasSpecialCharacters')">
+        *Password Should contain special characters
+    </div>
+    <!-- passowrd confirmation message -->
+    <div *ngIf="control.errors.unmatchedPasswords && control?.value ">
+        *Passwords do not match
+    </div>
+    <!-- ************** end password patterns  -->
+
+    <div *ngIf="control.errors.pattern?.requiredPattern == numericalRegex">
+        *Digits Only
+    </div>
+
+    <div *ngIf="control.errors.pattern?.requiredPattern == alphaRegex">
+        *Letters only
+    </div>
+
+    <!-- <div i18n="@@notAllowSpace" *ngIf="control.errors.whitespace">
+        *Not allow whitespace
+    </div> -->
+
+    <div *ngIf="control.hasError('validPhoneNumber')">
+        <span>*Invalid phone ex:</span>
+        <span>{{ control.errors.validPhoneNumber}}</span>
+    </div>
+
+    <!-- ****** start file validation -->
+    <div *ngIf="getControlName(control) == 'file' && control.errors.fileExt">
+        *File Only (PDF , DOC , DOCX)
+    </div>
+
+    <div *ngIf="getControlName(control) == 'file' && control.errors.fileSize">
+        * Max file size is 5 MB
+    </div>
+    <!-- ****** end file validation -->
+
+    <!-- ***** start image (branding page) validation -->
+    <div *ngIf="(getControlName(control) == 'logo') && control.errors.fileExt">
+        *File Only (JPG , PNG , JPEG)
+    </div>
+    <div *ngIf="(getControlName(control) == 'logo') && control.errors.fileSize">
+        *Max file size is 2 MB
+    </div>
+
+</div>

@@ -1,0 +1,10 @@
+.err{
+    margin-top: 7px;
+}
+.err>div:not(.password-validations){
+    color: #f14e4e;
+    font-size: 14px;
+}
+.err>div:not(.password-validations):dir(rtl){
+  text-align: right !important;
+}

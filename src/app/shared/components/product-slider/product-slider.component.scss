@@ -1,0 +1,38 @@
+.slider-container{
+    position: relative;
+}
+:host ::ng-deep .owl-theme .owl-nav [class*=owl-]{
+    font-size: 21px;
+    padding: 0;
+    line-height: 20px;
+    width: 30px;
+    height: 30px;
+    color: black;
+    position: absolute;
+    top: 50%;
+}
+:host ::ng-deep .owl-theme .owl-nav [class*=owl-]:hover{
+    background: #D6D6D6;
+}
+:host ::ng-deep .owl-theme .owl-nav .owl-prev{
+    left: 30px;
+    transform: translate(-100%,-50%);
+}
+:host ::ng-deep .owl-theme .owl-nav .owl-next{
+    right: 30px;
+    transform: translate(100%,-50%);
+}
+:host ::ng-deep .owl-nav span:hover{opacity: .9}
+:host ::ng-deep .owl-theme .owl-nav [class*=owl-]:hover{
+    background-color: transparent !important;
+}
+:host ::ng-deep .owl-theme .owl-nav [class*=owl-]:hover{
+    background-color: transparent;
+}
+:host ::ng-deep .carouser-content .owl-carousel.owl-drag .owl-item{
+    display: flex;
+}
+:host ::ng-deep .carouser-content .owl-carousel .owl-stage {
+    display: flex;
+    height: 100% !important;
+}

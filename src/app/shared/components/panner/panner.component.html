@@ -1,0 +1,12 @@
+<div class="slider-container">
+    <div class="carouser-content">
+        <owl-carousel-o [options]="customOptions">
+           <ng-template *ngFor="let main_category of main_categories;let i=index" carouselSlide>
+            <div class="over-layer" [routerLink]="['/product/category/'+main_category.id]" >
+              <h3>{{main_category.name}}</h3>
+            </div>
+            <img  [src]="main_category.img_src" width="100%" height="300px">
+          </ng-template>
+        </owl-carousel-o>
+    </div>
+  </div>

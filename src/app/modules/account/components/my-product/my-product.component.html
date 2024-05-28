@@ -1,0 +1,80 @@
+<div class="list-orders">
+  <div class="d-flex justify-content-end w-100">
+    <div class="edit" (click)="sell_popup=true">
+        <span>Sell</span>           
+        <img class="me-1" src="../../../../../assets/images/icon-plus1.svg" alt="icon-plus" />
+    </div>
+  </div>
+  <div *ngFor="let order of ordersList" class="order-container">
+    <div class="order">
+      <div class="order-info">
+        <div class="order-img"><img src="../../../../../assets/images/product.png"></div>
+        <p class="name"> Medical Tool</p>
+      </div>
+      <div >
+        <a href="" class="me-3"><img src="../../../../../assets/icons/edit.svg" height="20px" width="20px" alt=""></a>
+        <a href="" class="me-3"><img src="../../../../../assets/icons/delete.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blur" *ngIf="sell_popup" (click)="closePopup()"></div>
+
+<p-dialog [dismissableMask]="true" [(visible)]="sell_popup">
+  <div class="head mb-3">
+    <h3>Sell Product</h3>
+  </div>
+  <form action="">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-12 mb-3">
+        <label for="" class="form-label">Price</label>
+        <input type="number" min="1" class="form-control">
+      </div>
+      <div class="col-12 mb-3">
+        <label for="" class="form-label">Time Used <span class="note">Per Month</span></label>
+        <input type="number" min="1" class="form-control">
+      </div>
+      <div class="col-12 mb-3">
+        <label for="" class="form-label">Description</label>
+        <textarea name="" class="form-control"></textarea>
+      </div>
+      <div class="col-12 mb-3">
+        <label for="" class="form-label">Main Category</label>
+        <p-dropdown [options]="main_category" [showClear]="false" optionLabel="name" placeholder="Select a location"></p-dropdown>
+      </div>
+      <div class="col-12 mb-3">
+        <label for="" class="form-label">Sub Category</label>
+        <p-dropdown [options]="sub_category" [showClear]="false" optionLabel="name" placeholder="Select a location"></p-dropdown>
+
+      </div>
+      <div class="col-12 mb-3">
+        <label for="" class="form-label">Images</label>
+        <input type="file" [accept]="photoAllowedExt" [disabled]="srcImg.length >= 5" (change)="uploadImage($event)" class="form-control">
+      </div>
+      <div class="mb-5 images-body">
+        <div *ngFor="let item of srcImg; let i = index">
+          <div class="image-body">
+            <img [src]="item" alt="">
+            <img src="../../../../../assets/icons/cancel.svg" alt="cancel" (click)="deleteImage(i)" class="cancel-img">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer row">
+      <div class="col-md-6">
+        <button type="button" (click)="closePopup()" class="cancel-btn">Cancel</button>
+      </div>
+      <div class="col-md-6">
+        <button type="submit" class="custom-btn">
+          Sell
+          <!-- <i *ngIf="loadingSubmit" class="fa-spin fas fa-spinner"></i> -->
+        </button>
+      </div>
+    </div>
+  </form>
+</p-dialog>
