@@ -64,7 +64,8 @@
               </a>
             </li>
             <li>
-              <a class="dropdown-item" routerLink="/account/my-product/sell" routerLinkActive="active">
+              <a   data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop" class="dropdown-item" >
                 <img src="./assets/icons/upload.svg" alt="" />
                 <span>Sell</span>
               </a>
@@ -319,3 +320,30 @@
   </p-dialog>
 
 </div>
+<section>
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Policy</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Transactional Disclosure: Your personal information necessary for the transaction (e.g., name, contact details) will be shared with the buyer to facilitate the meeting and transaction.
+            </p>
+            <p>No Show Policy: If you fail to meet the buyer after agreeing to a transaction, the buyer will be refunded, and your ability to list future products on Toolify may be restricted or revoked.</p>
+            <p>
+              Confirmation Requirement: Ensure the buyer presses the confirmation button upon completing the transaction to receive your payment. If the buyer does not press the confirmation button, you will not receive your payment until the issue is resolved.
+            </p>
+            <p>
+              Return Policy: If the buyer finds a problem with the tool before confirming the transaction, they have the right to request a refund. Ensure your tools are accurately described and in proper working condition to avoid disputes.
+            </p>
+
+          </div>
+          <div class="modal-footer">
+            <button routerLink="/account/my-product/sell" routerLinkActive="active" type="button " class="btn btn-primary bg-green" data-bs-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
