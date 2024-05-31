@@ -1,59 +1,115 @@
-<main class="container" [ngClass]="{'my-5': !cart}">
-    <section class="row g-4">
-        <section class="col-11 col-md-11 col-xl-8  left-side">
-            <article class="product" *ngFor="let product of productsInCart ; let i = index">
-                <div class="prod-img">
-                    <!-- Recommended to set alt attribute related to real product viewed data -->
-                    <img [src]="product?.imgPath" alt="makeup-product1" class="product-img"/>
-                </div>
-                <section class="product-data">
-                    <h4 class="product-name">Dental Tool</h4>
-                    <h6 class="product-category font-category-arrive">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, aspernatur.</h6>
-                    <p class="arrival-time font-category-arrive"></p>
-                    <p class="product-price">{{product?.price.split('.')[0]}}<span>,{{product?.price?.split('.')[1]}}</span> EGP</p>
-                </section>
-                <div class="product-actions" *ngIf="cart">
-                    <span [hidden]="!product?.wishlist" (click)="unWishlistItem(i)">
-                        <img src="./assets/icons/fill-heart.svg" alt="wishlist-product" />
-                        <span>In wishlist</span>
-                    </span>
-                    <span [hidden]="product?.wishlist" (click)="wishlistItem(i)">
-                        <img src="./assets/icons/heart.svg" alt="wishlist-product" />
-                        <span>Add to wishlist</span>
-                    </span>
-                    <img src="./assets/icons/delete.svg" alt="delete-product" />
-                </div>
-            </article>
+<main class="container" [ngClass]="{ 'my-5': !cart }">
+  <section class="row g-4">
+    <section class="col-11 col-md-11 col-xl-8 left-side">
+      <article
+        class="product"
+        *ngFor="let product of productsInCart; let i = index"
+      >
+        <div class="prod-img">
+          <!-- Recommended to set alt attribute related to real product viewed data -->
+          <img
+            [src]="product?.imgPath"
+            alt="makeup-product1"
+            class="product-img"
+          />
+        </div>
+        <section class="product-data">
+          <h4 class="product-name">Dental Tool</h4>
+          <h6 class="product-category font-category-arrive">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis,
+            aspernatur.
+          </h6>
+          <p class="arrival-time font-category-arrive"></p>
+          <p class="product-price">
+            {{ product?.price.split(".")[0]
+            }}<span>,{{ product?.price?.split(".")[1] }}</span> EGP
+          </p>
         </section>
-        <section class="col-11 col-md-11 col-xl-4 cart-summary">
-                <p class="total-title">Order total</p>
-                <hr>
-                <div class="d-flex justify-content-between total-fee pt-3">
-                    <p>Total products</p>
-                    <p>73 <ng-container>EGP</ng-container></p>
-                </div>
-                <hr class="mt-0">
-                <div class="d-flex justify-content-between total-last">
-                    <p class="total-title">Total</p>
-                    <p class="total-title">73.71 EGP</p>
-                </div>
-                <div class="row mb-3 add-card" *ngIf="!cart">
-                    <label class="form-label">Card</label>
-                    <div class="col-9 ps-0">
-                      <input type="text" class="form-control" placeholder="Card Number">
-                    </div>
-                    <div class="col-3 pe-0">
-                      <input type="text" class="form-control" placeholder="CVV">
-                    </div>
-                </div>
-                <button *ngIf="cart" routerLink="/checkout" class="primary-btn dark pay-btn" >Pay</button>
-
-                <button *ngIf="!cart" routerLink="/account/orders" class="primary-btn dark pay-btn">checkout</button>
-
-        </section>
+        <div class="product-actions" *ngIf="cart">
+          <span [hidden]="!product?.wishlist" (click)="unWishlistItem(i)">
+            <img src="./assets/icons/fill-heart.svg" alt="wishlist-product" />
+            <span>In wishlist</span>
+          </span>
+          <span [hidden]="product?.wishlist" (click)="wishlistItem(i)">
+            <img src="./assets/icons/heart.svg" alt="wishlist-product" />
+            <span>Add to wishlist</span>
+          </span>
+          <img src="./assets/icons/delete.svg" alt="delete-product" />
+        </div>
+      </article>
     </section>
-    <div class="related" *ngIf="cart">Related products</div>
-    <section *ngIf="cart" class="list-products-carousel row">
-        <app-product-slider [productsList]="products"></app-product-slider>
+    <section class="col-11 col-md-11 col-xl-4 cart-summary">
+      <p class="total-title">Order total</p>
+      <hr />
+      <div class="d-flex justify-content-between total-fee pt-3">
+        <p>Total products</p>
+        <p>73 <ng-container>EGP</ng-container></p>
+      </div>
+      <hr class="mt-0" />
+      <div class="d-flex justify-content-between total-last">
+        <p class="total-title">Total</p>
+        <p class="total-title">73.71 EGP</p>
+      </div>
+      <div class="row mb-3 add-card" *ngIf="!cart">
+        <label class="form-label">Card</label>
+        <div class="col-9 ps-0">
+          <input type="text" class="form-control" placeholder="Card Number" />
+        </div>
+        <div class="col-3 pe-0">
+          <input type="text" class="form-control" placeholder="CVV" />
+        </div>
+      </div>
+      <button
+        *ngIf="cart"
+        routerLink="/checkout"
+        class="primary-btn dark pay-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+        Pay
+      </button>
+
+      <button
+        *ngIf="!cart"
+        routerLink="/account/orders"
+        class="primary-btn dark pay-btn"
+      >
+        checkout
+      </button>
     </section>
+  </section>
+  <div class="related" *ngIf="cart">Related products</div>
+  <section *ngIf="cart" class="list-products-carousel row">
+    <app-product-slider [productsList]="products"></app-product-slider>
+  </section>
+
+  <section>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Policy</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Meeting andConfirmation: If you meet the seller anconfirm
+                 the tool is as described by pressing the confirmation button on the Site
+                 , you acknowledge that you are satisfied with the purchase.
+                  Once confirmed, you are not allowed to request a refund or return the 
+                  product. Toolify is not responsible for any issues arising post-confirmation
+                </p>
+                <p>Refunds and Returns: If you find that the tool has a problem before confirming the transaction, you have the right to request a refund. If the confirmation button is not pressed, the seller will not receive the payment, and it wil
+                    l remain with Toolify until the issue is resolved.</p>
+                <p>Non-Confirmation: If you do not press the 
+                    confirmation button, the payment will not be released to 
+                    the seller. It is your responsibility to ensure that you 
+                    confirm the transaction upon successful completion.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button " class="btn btn-primary bg-green" data-bs-dismiss="modal">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
 </main>
