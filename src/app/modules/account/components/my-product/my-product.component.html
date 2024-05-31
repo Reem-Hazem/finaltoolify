@@ -1,6 +1,7 @@
 <div class="list-orders">
   <div class="d-flex justify-content-end w-100">
-    <div class="edit" (click)="sell_popup=true">
+    <div data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop" class="edit" >
         <span>Sell</span>           
         <img class="me-1" src="../../../../../assets/images/icon-plus1.svg" alt="icon-plus" />
     </div>
@@ -78,3 +79,33 @@
     </div>
   </form>
 </p-dialog>
+<section>
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Policy</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="fw-bold">Welcome to Toolify. Your privacy is critically important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website  
+              <a routerLink="/home">toolify</a>
+              (the "Site") and make use of our marketplace services.</p>
+            <p>Transactional Disclosure: Your personal information necessary for the transaction (e.g., name, contact details) will be shared with the buyer to facilitate the meeting and transaction.
+            </p>
+            <p>No Show Policy: If you fail to meet the buyer after agreeing to a transaction, the buyer will be refunded, and your ability to list future products on Toolify may be restricted or revoked.</p>
+            <p>
+              Confirmation Requirement: Ensure the buyer presses the confirmation button upon completing the transaction to receive your payment. If the buyer does not press the confirmation button, you will not receive your payment until the issue is resolved.
+            </p>
+            <p>
+              Return Policy: If the buyer finds a problem with the tool before confirming the transaction, they have the right to request a refund. Ensure your tools are accurately described and in proper working condition to avoid disputes.
+            </p>
+
+          </div>
+          <div class="modal-footer">
+            <button  type="button " class="btn btn-primary bg-green" data-bs-dismiss="modal" (click)="sell_popup=true">Understand</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
