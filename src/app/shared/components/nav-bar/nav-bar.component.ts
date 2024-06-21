@@ -118,7 +118,7 @@ export class NavBarComponent implements OnInit{
         ])
       ),
       phone: new FormControl('',[Validators.required,Validators.pattern(this.validation.numerical)]),
-      nationalId: new FormControl('',[Validators.required, Validators.max(13), Validators.min(13),Validators.pattern(this.validation.numerical)]),
+      nationalId: new FormControl('',[Validators.required, Validators.max(14), Validators.min(14),Validators.pattern(this.validation.numerical)]),
       location: new FormControl('',[Validators.required]),
     });
   }
